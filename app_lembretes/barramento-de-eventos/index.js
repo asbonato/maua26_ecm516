@@ -20,6 +20,11 @@ app.post('/eventos', (req, res) => {
     .catch((err) => {
         console.log('Microsserviço de consulta fora do ar.')
     })
+    //envia o evento para o microsserviço de classificação
+    axios.post('http://localhost:7001/eventos', evento)
+    .catch((err) => {
+        console.log('Microsserviço de classificação fora do ar.')
+    })
     res.status(200).send({msg: 'ok'})
 })
 
