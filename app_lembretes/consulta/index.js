@@ -35,6 +35,17 @@ app.post('/eventos', (req, res) => {
     res.status(200).send(baseConsulta)
 })
 
-app.listen(6000, () => {
+app.listen(6000, async () => {
     console.log('Consultas. Porta 6000.')
+    try {
+        const resp = await axios.get('http://localhost:10000/eventos')
+        //o axios entrega os dados na propriedade data
+        resp.data.forEach((valor, indice, colecao) => {
+            try {
+                funcoes[valor.tipo](valor.dados)
+            } catch(err) {}
+        })
+    } catch (err){
+        console.log('O barramento de eventos não está ativo.')
+    }
 })
