@@ -1,0 +1,10 @@
+opencollection: 1.0.0
+
+info:
+  name: app_lembretes 2026
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

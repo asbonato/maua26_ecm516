@@ -1,0 +1,21 @@
+info:
+  name: observacao 1 bem forte
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: http://localhost:5001/lembretes/1/observacoes
+  body:
+    type: json
+    data: |-
+      {
+          "texto": "importante - bem forte"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

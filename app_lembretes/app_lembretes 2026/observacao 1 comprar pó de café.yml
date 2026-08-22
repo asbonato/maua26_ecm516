@@ -1,0 +1,21 @@
+info:
+  name: observacao 1 comprar pó de café
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:5001/lembretes/1/observacoes
+  body:
+    type: json
+    data: |-
+      {
+          "texto": "comprar pó de café"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

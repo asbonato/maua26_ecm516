@@ -1,0 +1,21 @@
+info:
+  name: observacao 2 tipo a
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: http://localhost:5001/lembretes/2/observacoes
+  body:
+    type: json
+    data: |-
+      {
+          "texto": "tipo A"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
