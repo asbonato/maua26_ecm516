@@ -14,7 +14,7 @@ app.post('/lembretes', async (req, res) => {
     contador++
     const { texto } = req.body
     lembretes[contador] = {contador, texto}
-    await axios.post('http://10.2.0.126:10000/eventos', {
+    await axios.post('http://barramento-de-eventos-service:10000/eventos', {
         tipo: 'LembreteCriado',
         dados: {
             contador,
@@ -29,5 +29,6 @@ app.post('/eventos', (req, res) => {
 })
 
 app.listen(4000, () => {
+    console.log('Acessando via service')
     console.log('Lembretes. Porta 4000.')
 })

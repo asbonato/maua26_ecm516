@@ -9,19 +9,19 @@ app.post("/eventos", (req, res) => {
   const evento = req.body;
   eventos.push(evento);
   //envia o evento para o microsserviço de lembretes
-  axios.post("http://10.2.0.126:4000/eventos", evento).catch((err) => {
+  axios.post("http://lembretes-clusterip-service:4000/eventos", evento).catch((err) => {
     console.log("Microsserviço de lembretes fora do ar.");
   });
   //envia o evento para o microsserviço de observações
-  axios.post("http://10.2.0.126:5001/eventos", evento).catch((err) => {
+  axios.post("http://observacoes-clusterip-service:5000/eventos", evento).catch((err) => {
     console.log("Microsserviço de observações fora do ar.");
   });
   //envia o evento para o microsserviço de consulta
-  axios.post("http://10.2.0.126:6000/eventos", evento).catch((err) => {
+  axios.post("http://consulta-clusterip-service:6000/eventos", evento).catch((err) => {
     console.log("Microsserviço de consulta fora do ar.");
   });
   //envia o evento para o microsserviço de classificação
-  axios.post("http://10.2.0.126:7001/eventos", evento).catch((err) => {
+  axios.post("http://classificacao-clusterip-service:7000/eventos", evento).catch((err) => {
     console.log("Microsserviço de classificação fora do ar.");
   });
   res.status(200).send({ msg: "ok" });
@@ -32,5 +32,6 @@ app.get("/eventos", (req, res) => {
 });
 
 app.listen(10000, () => {
+  console.log('Acessando via servico')
   console.log("Barramento de eventos. Porta 10000.");
 });
