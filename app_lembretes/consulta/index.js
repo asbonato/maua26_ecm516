@@ -34,9 +34,10 @@ app.post("/eventos", (req, res) => {
 });
 
 app.listen(6000, async () => {
+  console.log('Acessando via service.');
   console.log("Consultas. Porta 6000.");
   try {
-    const resp = await axios.get("http://10.2.0.126:10000/eventos");
+    const resp = await axios.get("http://barramento-de-eventos-service:10000/eventos");
     //o axios entrega os dados na propriedade data
     resp.data.forEach((valor, indice, colecao) => {
       try {

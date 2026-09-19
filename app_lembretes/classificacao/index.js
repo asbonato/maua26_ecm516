@@ -9,7 +9,7 @@ const funcoes = {
     observacao.status = observacao.texto.includes(palavraChave)
       ? "importante"
       : "comum";
-    axios.post("http://10.2.0.126:10000/eventos", {
+    axios.post("http://barramento-de-eventos-service:10000/eventos", {
       tipo: "ObservacaoClassificada",
       dados: observacao,
     });
@@ -23,6 +23,7 @@ app.post("/eventos", (req, res) => {
   res.status(200).send({ msg: "ok" });
 });
 
-app.listen(7001, () => {
-  console.log("Classificação. Porta 7001");
+app.listen(7000, () => {
+  console.log("Acessando via service");
+  console.log("Classificação. Porta 7000");
 });

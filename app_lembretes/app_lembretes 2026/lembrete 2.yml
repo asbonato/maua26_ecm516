@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: http://localhost:4000/lembretes
+  url: http://localhost:30187/lembretes
   body:
     type: json
     data: '{"texto":"comprar leite"}'

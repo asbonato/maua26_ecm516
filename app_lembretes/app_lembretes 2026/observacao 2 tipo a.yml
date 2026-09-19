@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: http://localhost:5001/lembretes/2/observacoes
+  url: http://localhost:30852/lembretes/2/observacoes
   body:
     type: json
     data: |-

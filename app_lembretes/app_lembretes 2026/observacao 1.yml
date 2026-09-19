@@ -4,7 +4,7 @@ info:
 
 http:
   method: GET
-  url: http://localhost:5001/lembretes/1/observacoes
+  url: http://localhost:30852/lembretes/1/observacoes
   auth: inherit
 
 settings:
