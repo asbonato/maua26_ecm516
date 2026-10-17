@@ -11,7 +11,8 @@ MySQLConnectionPool criarPool(AppConfig config) {
     host: config.dbHost, 
     port: config.dbPort, 
     userName: config.dbUser, 
-    password: config.dbPassword, 
+    password: config.dbPassword,
+    databaseName: config.dbName,
     maxConnections: config.dbPoolSize,
     // Dentro da rede privada do Docker o tráfego não sai da máquina, então
     // TLS é dispensável. Em produção, com o banco em outro host, troque
