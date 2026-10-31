@@ -20,7 +20,7 @@ class ErroValidacao extends ErroApp {
   final Map<String, String> campos;
 }
 
-//A operação conflita com o estado autual dos dados. Vir 409.
+//A operação conflita com o estado autual dos dados. Vira 409.
 class Conflito extends ErroApp {
   const Conflito(super.mensagem);
 }

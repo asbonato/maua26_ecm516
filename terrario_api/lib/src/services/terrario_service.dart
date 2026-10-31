@@ -1,4 +1,4 @@
-import 'package:terrario_api/core/erros.dart';
+import 'package:terrario_api/src/core/erros.dart';
 import 'package:terrario_api/src/repositories/terrario_repository.dart';
 import '../models/terrario.dart';
 
@@ -75,7 +75,7 @@ class TerrarioService {
 
     final homonimo = await _repository.buscarPorApelido(dados.apelido);
     if (homonimo != null && homonimo.id != id) {
-      throw Conflito('Já existe um terrário com o apelido "${novo.apelido}".');
+      throw Conflito('Já existe um terrário com o apelido "${dados.apelido}".');
     }
 
     final atualizado = await _repository.atualizar(id, dados);
@@ -86,7 +86,7 @@ class TerrarioService {
   }
 
   Future<void> remover(int id) async {
-    final removido = await +_repository.remover(id);
+    final removido = await _repository.remover(id);
     if (!removido) {
       throw NaoEncontrado('Não existe terrário com id $id.');
     }
